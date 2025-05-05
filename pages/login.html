@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - D4Rent</title>
+  <link rel="stylesheet" href="../css/login.css"> <!-- Correct relative path to login.css -->
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <a href="../index.html"> <!-- Correct relative path to index.html -->
+        <img src="../assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Logo"> <!-- Correct relative path to logo -->
+      </a>
+    </div>
+    <div class="nav-login-container">
+      <nav>
+        <ul>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="rent.html">Rent</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="let.html">Let</a></li>
+          <li><a href="landlords.html">Landlords</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+          <li class="dropdown">
+            <a href="agents.html">Agents</a>
+            <ul class="dropdown-menu">
+              <li><a href="agents.html">Real Estate Agents</a></li>
+              <li><a href="agents.html">Mortgages</a></li>
+              <li><a href="agents.html">Valuations</a></li>
+              <li><a href="agents.html">Home Improvement</a></li>
+              <li><a href="agents.html">Other</a></li>
+            </ul>
+          </li>
+          <li><a href="contact-us.html" class="contact-button">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Login Button -->
+      <a href="login.html" class="login-button">
+        <img src="../assets/download.jpg" alt="User Profile">
+      </a>
+    </div>
+  </header>
+
+  <!-- Login Section -->
+  <section class="contact-section">
+    <div class="login-container">
+      <div class="login-box">
+        <h1>Login</h1>
+        <form id="loginForm"> <!-- Removed action and method -->
+          <input type="email" id="email" placeholder="Email" required aria-label="Email">
+          <input type="password" id="password" placeholder="Password" required autocomplete="current-password" aria-label="Password">
+          <button type="submit">Login</button>
+        </form>
+        <a href="javascript:void(0);" onclick="openRegisterPopup()">Don't have an account? Register here</a>
+        
+      </div>
+
+      <!-- Register Popup -->
+      <div id="registerPopup" class="popup">
+        <div class="popup-content">
+          <span class="close" onclick="closeRegisterPopup()">&times;</span>
+          <h2>Email with Full Name, PSRA and CV to Register for an Agent Account</h2>
+          <p>Email <a href="mailto:d4rentseanquinn@gmail.com">d4rentseanquinn@gmail.com</a> with your Full Name, PSRA number, and CV to get an agent account.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popup for Join -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <h2>Join Us</h2>
+      <p>To apply to join D4RENT.IE, email. PSRA LICENSE REQUIRED! <a href="mailto:info@d4rent.ie">info@d4rent.ie</a>.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-image">
+        <img src="../assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Footer Logo">
+      </div>
+      <div class="footer-section">
+        <h3>Contact Details</h3>
+        <p>D4RENT.IE</p>
+        <p>36 Upper Baggot St, Ballsbridge, D4</p>
+        <p>Phone: 01 442 7303</p>
+        <p>087 169 9498</p>
+        <p>Email: <a href="mailto:info@d4rent.ie">info@d4rent.ie</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="agents.html">Agents</a></li>
+          <li><a href="landlords.html">Landlords</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Policy Links</h3>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect with Us</h3>
+        <ul>
+          <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+          <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+          <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+          <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="psra-number">PSRA No 003328</div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="../scripts/login.js"></script> <!-- Link to login.js -->
+</body>
+</html>

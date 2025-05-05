@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D4Rent</title>
+  <link rel="stylesheet" href="../css/agents.css">
+  <header>
+    <div class="logo-container">
+      <a href="../index.html">
+        <img src="../assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Logo">
+      </a>
+    </div>
+    <div class="nav-login-container">
+      <nav>
+        <ul>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="rent.html">Rent</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="let.html">Let</a></li>
+          <li><a href="landlords.html">Landlords</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+            <!-- Dropdown for Agents -->
+      <li class="dropdown">
+        <a href="agents.html">Agents</a>
+        <ul class="dropdown-menu">
+            <li><a href="agents.html">Real Estate Agents</a></li>
+            <li><a href="agents.html">Mortgages</a></li>
+            <li><a href="agents.html">Valuations</a></li>
+            <li><a href="agents.html">Home Improvement</a></li>
+            <li><a href="agents.html">Other</a></li>
+        </ul>
+    </li>
+          <li><a href="contact-us.html" class="contact-button">Contact Us</a></li>
+        </ul>
+      </nav>
+      <!-- Login Button -->
+      <a href="login.html" class="login-button">
+        <img src="../assets/download.jpg" alt="User Profile">
+      </a>
+    </div>
+  </header>
+
+  <section class="agent-profiles">
+    <h2>Meet Our Agents</h2>
+    <div class="carousel">
+        <button class="carousel-button left">&lt;</button> <!-- Left Arrow -->
+        <div class="carousel-track-container">
+            <div class="carousel-track">
+                <!-- Agent 1 -->
+                <a href="seanquinnprofile.html" class="agent-link">
+                  <div class="agent-card">
+                      <img src="../assets/sean quinn.png" alt="Agent 1" class="agent-photo">
+                      <h3></h3>
+                      <p>Managing Director</p>
+                  </div>
+              </a>
+                <!-- Agent 2 -->
+                <a href="agentprofile copy.html" class="agent-link">
+                  <div class="agent-card">
+                      <img src="../assets/download.jpg" alt="Agent 2" class="agent-photo">
+                      <h3></h3>
+                      <p>Real Estate Agent</p>
+                  </div>
+                </a>
+                <!-- Agent 3 -->
+                <a href="agentprofile copy.html" class="agent-link">
+                  <div class="agent-card">
+                      <img src="../assets/download.jpg" alt="Agent 3" class="agent-photo">
+                      <h3></h3>
+                      <p>Real Estate Agent</p>
+                  </div>
+                </a>
+                <!-- Agent 4 -->
+                <a href="agentprofile copy.html" class="agent-link">
+                  <div class="agent-card">
+                      <img src="../assets/download.jpg" alt="Agent 4" class="agent-photo">
+                      <h3></h3>
+                      <p>Real Estate Agent</p>
+                  </div>
+                </a>
+              <!-- Agent 5 -->
+              <a href="agentprofile copy.html" class="agent-link">
+                <div class="agent-card">
+                    <img src="../assets/download.jpg" alt="Agent 5" class="agent-photo">
+                    <h3></h3>
+                    <p>Real Estate Agent</p>
+                </div>
+              </a>
+                <!-- Add more agents as needed -->
+            </div>
+        </div>
+        <button class="carousel-button right">&gt;</button> <!-- Right Arrow -->
+    </div>
+</section>
+    
+        <!-- Link to the JavaScript file -->
+        <script src="../scripts/main.js"></script>
+
+  <!-- Footer -->
+  <footer>
+
+    <div class="footer-container">
+      <div class="footer-image">
+        <img src="../assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Footer Logo">
+    </div>
+    <div class="footer-section">
+      <h3>Contact Details</h3>
+      <p>D4RENT.IE</p>
+      <p>36 Upper Baggot St, Ballsbridge, D4</p>
+      <p>Phone: 01 442 7303, 087 169 9498</p>
+      <p>Email: <a href="mailto:info@d4rent.ie">info@d4rent.ie</a></p>
+    </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="agents.html">Agents</a></li>
+          <li><a href="landlords.html">Landlords</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Policy Links</h3>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect with Us</h3>
+        <ul>
+          <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+          <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+          <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+          <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="psra-number">PSRA No 003328</div>
+  </footer>
+  
+    <script>const track = document.querySelector('.carousel-track');
+      const cards = Array.from(track.children);
+      const leftButton = document.querySelector('.carousel-button.left');
+      const rightButton = document.querySelector('.carousel-button.right');
+      
+      const cardWidth = cards[0].getBoundingClientRect().width;
+      
+      // Arrange the cards next to each other
+      cards.forEach((card, index) => {
+          card.style.left = `${index * cardWidth}px`;
+      });
+      
+      let currentIndex = 0;
+      
+      // Move the carousel to the selected card
+      function moveToCard(index) {
+          const amountToMove = cards[index].style.left;
+          track.style.transform = `translateX(-${amountToMove})`;
+          currentIndex = index;
+      }
+      
+      // Click event for the right button
+      rightButton.addEventListener('click', () => {
+          if (currentIndex < cards.length - 1) {
+              moveToCard(currentIndex + 1);
+          }
+      });
+      
+      // Click event for the left button
+      leftButton.addEventListener('click', () => {
+          if (currentIndex > 0) {
+              moveToCard(currentIndex - 1);
+          }
+      });</script>
+    <script src="../scripts/main.js"></script>
+  </body>
+  </html>

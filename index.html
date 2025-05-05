@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D4Rent</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Logo">
+        </a>
+      </div>
+      <div class="nav-login-container">
+        <nav>
+          <ul>
+            <li><a href="pages/buy.html">Buy</a></li>
+            <li><a href="pages/rent.html">Rent</a></li>
+            <li><a href="pages/sell.html">Sell</a></li>
+            <li><a href="pages/let.html">Let</a></li>
+            <li><a href="pages/landlords.html">Landlords</a></li>
+            <li><a href="pages/commercial.html">Commercial</a></li>
+            <!-- Dropdown for Agents -->
+            <li class="dropdown">
+              <a href="pages/agents.html">Agents</a>
+              <ul class="dropdown-menu">
+                <li><a href="real-estate-agents.html">Real Estate Agents</a></li>
+                <li><a href="mortgages.html">Mortgages</a></li>
+                <li><a href="valuations.html">Valuations</a></li>
+                <li><a href="home-improvement.html">Home Improvement</a></li>
+                <li><a href="other.html">Other</a></li>
+              </ul>
+            </li>
+            <li><a href="pages/contact-us.html" class="contact-button">Contact Us</a></li>
+          </ul>
+        </nav>
+        <!-- Login Button -->
+        <a href="pages/login.html" class="login-button">
+          <img src="assets/download.jpg" alt="User Profile">
+        </a>
+      </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-bar-container">
+      <form id="searchForm" class="search-form">
+        <input
+          type="text"
+          id="searchInput"
+          name="query"
+          placeholder="Search properties or enter an address..."
+          class="search-input"
+        />
+        <button type="submit" class="search-button">Search</button>
+      </form>
+    </div>
+
+    <script>
+      let map; // Declare the map variable globally
+      let geocoder; // Declare the geocoder variable globally
+      let marker; // Declare the marker variable globally
+
+      function initMap() {
+        const mapOptions = {
+          center: { lat: 53.334028, lng: -6.253549 }, // Default center (Dublin 4)
+          zoom: 14,
+        };
+
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        geocoder = new google.maps.Geocoder(); // Initialize the geocoder
+      }
+
+      document.getElementById('searchForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent the form from submitting normally
+
+        const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+        // Redirect to specific pages based on keywords
+        if (query === 'buy') {
+          window.location.href = 'pages/buy.html';
+        } else if (query === 'rent') {
+          window.location.href = 'pages/rent.html';
+        } else if (query === 'sell') {
+          window.location.href = 'pages/sell.html';
+        } else if (query === 'agents') {
+          window.location.href = 'pages/agents.html';
+        } else if (
+          query.includes('logged in') ||
+          query.includes('login') ||
+          query.includes('loggin') ||
+          query.includes('user') ||
+          query.includes('profile')
+        ) {
+          window.location.href = 'pages/login.html';
+        } else if (
+          query.includes('landlords') ||
+          query.includes('landlord') ||
+          query.includes('renting') ||
+          query.includes('selling') ||
+          query.includes('letting')
+        ) {
+          window.location.href = 'pages/landlords.html';
+        } else if (
+          query.includes('commercial') ||
+          query.includes('offices') ||
+          query.includes('retail') ||
+          query.includes('industrial') ||
+          query.includes('land')
+        ) {
+          window.location.href = 'pages/commercial.html';
+        } else if (query === 'home') {
+          window.location.href = 'index.html'; // Corrected the path to the home page
+        } else if (query.includes('address') || query.includes('map')) {
+          // Scroll to the map section on the index page
+          const mapSection = document.getElementById('map');
+          if (mapSection) {
+            mapSection.scrollIntoView({ behavior: 'smooth' });
+
+            // Geocode the address
+            geocoder.geocode({ address: query }, function (results, status) {
+              if (status === 'OK') {
+                // Center the map on the geocoded location
+                map.setCenter(results[0].geometry.location);
+
+                // Add or update the marker
+                if (marker) {
+                  marker.setMap(null); // Remove the existing marker
+                }
+                marker = new google.maps.Marker({
+                  map: map,
+                  position: results[0].geometry.location,
+                  title: query,
+                });
+                // Optional: Zoom in on the location
+                map.setZoom(16);
+              } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+              }
+            });
+          } else {
+            alert('Map section not found on this page.');
+          }
+        } else {
+          alert('No results found for your search.');
+        }
+      });
+    </script>
+
+    <!-- Slideshow Section -->
+    <section class="slideshow">
+      <div class="slideshow-container">
+        <div class="slide">
+          <img src="assets/IMAGE9.jpg" alt="Property 1">
+        </div>
+        <div class="slide">
+          <img src="assets/IMAGE10.jpg" alt="Property 2">
+        </div>
+        <div class="slide">
+          <img src="assets/IMAGE2.jpg" alt="Property 3">
+        </div>
+      </div>
+      <div class="dots-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    </section>
+
+    <script>
+      let slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        const slides = document.querySelectorAll(".slide");
+        const dots = document.querySelectorAll(".dot");
+
+        slides.forEach((slide) => (slide.style.display = "none"));
+        dots.forEach((dot) => dot.classList.remove("active"));
+
+        slideIndex++;
+        if (slideIndex > slides.length) slideIndex = 1;
+
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].classList.add("active");
+
+        setTimeout(showSlides, 5000); // Change slide every 5 seconds
+      }
+
+      function currentSlide(index) {
+        slideIndex = index - 1;
+        showSlides();
+      }
+    </script>
+
+    <!-- Local Experts, Global Reach Section -->
+    <section class="local-global">
+      <h2>The Real Meaning of D4RENT.IE‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ Local Experts,‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  Luxury Rentals,‎ ‎ ‎ ‎ ‎ ‎ ‎  Luxury Homes, Unparalleled Experiences.</h2>
+      <p>Since 1900 Dublin 4 has been synonymous in the luxury real estate market. D4RENT.IE goes beyond offering luxury properties for rent. We also provide expertise in luxury sales, property management, new developments, and real estate investment strategies. Having your properties listed on D4Rent.ie gives our clients access to our elite platform for selling, buying, and letting real estate.</p>
+    </section>
+
+    <!-- Meet Your Experts Section -->
+        <section class="meet-your-experts">
+      <h2>Meet Our Experts</h2>
+      <div class="experts-container">
+        <!-- Expert 1 -->
+        <a href="pages/seanquinnprofile.html" class="expert-link">
+          <div class="expert-card">
+            <div class="profile-picture">
+              <img src="assets/sean quinn.png" alt="Expert 1">
+            </div>
+            <h3>Sean Quinn</h3>
+            <p class="job-title">Managing Director</p>
+            <p>Email: <a href="mailto:seanquinn@d4rent.ie">seanquinn@d4rent.ie</a></p>
+            <p>Phone: 087 169 9498</p>
+          </div>
+        </a>
+        <!-- Add more experts as needed -->
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <div id="map" style="width: 100%; height: 700px;"></div>
+    </section>
+
+    
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-image">
+          <img src="assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Footer Logo">
+        </div>
+        <div class="footer-section">
+          <h3>Contact Details</h3>
+          <p>D4RENT.IE</p>
+          <p>36 Upper Baggot St, Ballsbridge, D4</p>
+          <p>Phone: 01 442 7303</p>
+          <p>087 169 9498</p>
+          <p>Email: <a href="mailto:info@d4rent.ie">info@d4rent.ie</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="pages/buy.html">Buy</a></li>
+            <li><a href="pages/sell.html">Sell</a></li>
+            <li><a href="pages/agents.html">Agents</a></li>
+            <li><a href="pages/landlords.html">Landlords</a></li>
+            <li><a href="pages/commercial.html">Commercial</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Policy Links</h3>
+          <ul>
+            <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="pages/terms-of-service.html">Terms of Service</a></li>
+            <li><a href="pages/cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Connect with Us</h3>
+          <ul>
+            <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+            <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+            <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="psra-number">PSRA No 003328</div>
+    </footer>
+  </div>
+
+  <!-- Google Maps Script -->
+
+  <script src="/scripts/main.js"></script>
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8dkrqVKGGQS8fX3avGMDjw-NTZa8bLqQ&callback=initMap">
+ 
+ 
+ </script>
+
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D4Rent</title>
+  <link rel="stylesheet" href="../css/rent.css"> <!-- Correct relative path to rent.css -->
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <a href="../index.html"> <!-- Correct relative path to index.html -->
+        <img src="../assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Logo"> <!-- Correct relative path to logo -->
+      </a>
+    </div>
+    <div class="nav-login-container">
+      <nav>
+        <ul>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="rent.html">Rent</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="let.html">Let</a></li>
+          <li><a href="landlords.html">Landlords</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+            <!-- Dropdown for Agents -->
+      <li class="dropdown">
+        <a href="agents.html">Agents</a>
+        <ul class="dropdown-menu">
+            <li><a href="agents.html">Real Estate Agents</a></li>
+            <li><a href="agents.html">Mortgages</a></li>
+            <li><a href="agents.html">Valuations</a></li>
+            <li><a href="agents.html">Home Improvement</a></li>
+            <li><a href="agents.html">Other</a></li>
+        </ul>
+    </li>
+          <li><a href="contact-us.html" class="contact-button">Contact Us</a></li>
+        </ul>
+      </nav>
+      <!-- Login Button -->
+      <a href="login.html" class="login-button">
+        <img src="../assets/download.jpg" alt="User Profile"> <!-- Correct relative path -->
+      </a>
+    </div>
+  </header>
+
+  <section class="full-width-slideshow">
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="../assets/IMAGE10.jpg" alt="Slideshow Image 1">
+        </div>
+        <div class="slide fade">
+            <img src="../assets/IMAGE8.jpg" alt="Slideshow Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="../assets/IMAGE9.jpg" alt="Slideshow Image 3">
+        </div>
+        <!-- Single text overlay -->
+        <div class="slideshow-text">
+            <h2>Buying a Home is a Big Deal. We Can Make it a Great One!</h2>
+            <p></p>
+        </div>
+    </div>
+
+</section>
+
+  <!-- Page Title -->
+  <section class="page-title">
+    <h1>Properties for Sale</h1>
+  </section>
+
+  <!-- Search Filter Section -->
+  <section class="search-filter">
+    <form action="#" method="GET" class="filter-form">
+      <!-- Price Filter -->
+      <div class="filter-group">
+        <label for="price">Price Range:</label>
+        <select id="price" name="price">
+          <option value="">Any</option>
+          <option value="0-100000">€0 - €100,000</option>
+          <option value="100000-200000">€100,000 - €200,000</option>
+          <option value="10000-500000">€20,000 - €500,000</option>
+          <option value="500000-700000">€500,000 - €700,000 </option>
+          <option value="700000-1000000">€700,000 - €1,000,000 </option>
+          <option value="1000000-10000000">€1,000,000 - €10,000,000 </option>
+          <option value="10000000+">€10,000,000+ </option>
+        </select>
+      </div>
+
+      <!-- Beds Filter -->
+      <div class="filter-group">
+        <label for="beds">Bedrooms:</label>
+        <select id="beds" name="beds">
+          <option value="">Any</option>
+          <option value="1">1 Bedroom</option>
+          <option value="2">2 Bedrooms</option>
+          <option value="3">3 Bedrooms</option>
+          <option value="4+">4+ Bedrooms</option>
+        </select>
+      </div>
+
+      <!-- Property Type Filter -->
+      <div class="filter-group">
+        <label for="type">Property Type:</label>
+        <select id="type" name="type">
+          <option value="">Any</option>
+          <option value="house">House</option>
+          <option value="apartment">Apartment</option>
+          <option value="villa">Villa</option>
+          <option value="commercial">Commercial</option>
+          <option value="georgian">Georgian</option>
+          <option value="detached">Detached</option>
+          <option value="semi-detached">Semi-Detached</option>
+        </select>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="filter-button">Search</button>
+    </form>
+  </section>
+
+  <!-- Properties Section -->
+  <section class="properties">
+    <div class="property-grid">
+      <!-- Property 1 -->
+      <div class="property-card">
+        <img src="../assets/sold buy.png" alt="3-Bedroom House in Dublin"> <!-- Correct relative path -->
+        <h3>3-Bedroom House Near Baggot Street Upper</h3>
+        <p>Sold</p>
+        <a href="propertytemplate.html" class="view-details">View Details</a> <!-- Correct relative path -->
+      </div>
+
+      <!-- Property 2 -->
+      <div class="property-card">
+        <img src="../assets/property2.jpg" alt="Property 2"> <!-- Correct relative path -->
+        <h3></h3>
+        <p>Sold</p>
+        <a href=".HTML" class="view-details">View Details</a> <!-- Correct relative path -->
+      </div>
+
+      <!-- Property 3 -->
+      <div class="property-card">
+        <img src="../assets/property3.jpg" alt="Property 3"> <!-- Correct relative path -->
+        <h3></h3>
+        <p>Sold</p>
+        <a href=".HTML" class="view-details">View Details</a> <!-- Correct relative path -->
+      </div>
+    </div>
+  </section>
+
+  <section class="step-guide">
+    <h2>Steps to Buying a Property</h2>
+    <p></p>
+    <div class="steps-container">
+        <!-- Step 1 -->
+        <div class="step" onclick="toggleDropdown(1)">
+            <span>Step 1</span>
+        </div>
+        <!-- Step 2 -->
+        <div class="step" onclick="toggleDropdown(2)">
+            <span>Step 2</span>
+        </div>
+        <!-- Step 3 -->
+        <div class="step" onclick="toggleDropdown(3)">
+            <span>Step 3</span>
+        </div>
+        <!-- Step 4 -->
+        <div class="step" onclick="toggleDropdown(4)">
+            <span>Step 4</span>
+        </div>
+        <!-- Step 5 -->
+        <div class="step" onclick="toggleDropdown(5)">
+            <span>Step 5</span>
+        </div>
+        <!-- Step 6 -->
+        <div class="step" onclick="toggleDropdown(6)">
+            <span>Step 6</span>
+        </div>
+    </div>
+
+    <!-- Dropdown Sections -->
+    <div id="dropdown-1" class="dropdown-section">
+      <h3>Step 1: Figure out how much you can afford</h3>
+      <p>Before beginning your new home search, you should get a handle on your finances and, especially, how much you can afford to spend. Make sure you factor in all of the costs involved. To get a good understanding of this, take a look at this article covering this from our recommended mortgage broker, Finance One. There may be a process of getting yourself mortgage ready involved, especially if you are a first time buyer.</p>
+  </div>
+  <div id="dropdown-2" class="dropdown-section">
+      <h3>Step 2: Are You Also Selling?</h3>
+      <p>If your move means you are also selling your own home, you should really put your own home on the market before starting your search. Being ready to sell (or having already sold) means you will be in a strong position to move quickly on the home you want. This can make all the difference to a vendor when selecting which offer to go with.</p>
+  </div>
+  <div id="dropdown-3" class="dropdown-section">
+    <h3>Step 3: Finding the right home for you</h3>
+    <p>With so many homes coming on the market all the time, this can be a time-consuming process. Keep an eye on the sales sites and areas that you like, but you might also consider briefing an estate agent such as D4RENT.IE who can help you in the following ways:
+
+      We can give advice on the  area or property you are interested in
+      Use our industry knowledge and connections to find the home that matches your brief precisely and/or view it on your behalf
+      Give an unbiased appraisal of any properties you are considering going for
+      Negotiate on your behalf when it comes to making an offer on the property</p>
+</div>
+<div id="dropdown-4" class="dropdown-section">
+  <h3>Step 4: Make an Offer</h3>
+  <p>Once you find your perfect property you can make an offer directly from the listing on our site or by contacting the agent directly. Let us know if there any special conditions of the offer and we’ll communicate this to the landlord.</p>
+</div>
+<div id="dropdown-5" class="dropdown-section">
+<h3>Step 5: Offer Agreed</h3>
+<p>If your offer is accepted, your D4 Agent will organise the following:
+
+  Contract Agreements
+  Booking Deposit Amount
+  Arrange key handover and move in information</p>
+</div>
+<div id="dropdown-6" class="dropdown-section">
+<h3>Step 6: Handover</h3>
+<p>The D4 Agent can now give you the keys for your move in. Congrats!
+</p>
+</div>
+    <!-- Add similar dropdown sections for steps 3 to 6 -->
+</section>
+
+<footer>
+
+  <div class="footer-container">
+    <div class="footer-image">
+      <img src="../assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Footer Logo">
+  </div>
+  <div class="footer-section">
+    <h3>Contact Details</h3>
+    <p>D4RENT.IE</p>
+    <p>36 Upper Baggot St, Ballsbridge, D4</p>
+    <p>Phone: 01 442 7303</p>
+    <p>087 169 9498</p>
+    <p>Email: <a href="mailto:info@d4rent.ie">info@d4rent.ie</a></p>
+  </div>
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="buy.html">Buy</a></li>
+        <li><a href="sell.html">Sell</a></li>
+        <li><a href="agents.html">Agents</a></li>
+        <li><a href="landlords.html">Landlords</a></li>
+        <li><a href="commercial.html">Commercial</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Policy Links</h3>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-of-service.html">Terms of Service</a></li>
+        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Connect with Us</h3>
+      <ul>
+        <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="psra-number">PSRA No 003328</div>
+</footer>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>

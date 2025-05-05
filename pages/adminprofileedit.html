@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile - D4Rent</title>
+  <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <a href="../index.html">
+        <img src="../assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Logo">
+      </a>
+    </div>
+    <div class="nav-login-container">
+      <nav>
+        <ul>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="rent.html">Rent</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="let.html">Let</a></li>
+          <li><a href="landlords.html">Landlords</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+          <li class="dropdown">
+            <a href="agents.html">Agents</a>
+            <ul class="dropdown-menu">
+              <li><a href="agents.html">Real Estate Agents</a></li>
+              <li><a href="agents.html">Mortgages</a></li>
+              <li><a href="agents.html">Valuations</a></li>
+              <li><a href="agents.html">Home Improvement</a></li>
+              <li><a href="agents.html">Other</a></li>
+            </ul>
+          </li>
+          <li><a href="contact-us.html" class="contact-button">Contact Us</a></li>
+        </ul>
+      </nav>
+      <a href="login.html" class="login-button">
+        <img src="../assets/download.jpg" alt="User Profile">
+      </a>
+    </div>
+  </header>
+
+  <!-- Editable Profile Section -->
+  <section class="profile-container">
+    <h1>Edit Profile</h1>
+    <div class="profile-details">
+      <!-- Profile Picture Section -->
+      <div class="profile-picture">
+        <label for="profilePictureInput">Profile Picture:</label>
+        <input type="file" id="profilePictureInput" accept="image/*">
+        <img src="" alt="Profile Picture" id="profileImage">
+      </div>
+
+      <!-- Editable Profile Information -->
+      <form id="editProfileForm">
+        <label for="full_name">Name:</label>
+        <input type="text" id="full_name" name="full_name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone_number">Phone:</label>
+        <input type="tel" id="phone_number" name="phone_number">
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address"></textarea>
+
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio"></textarea>
+
+        <button type="submit">Save Changes</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="property-submission">
+    <h2>Submit a New Property</h2>
+    <form id="propertyForm" enctype="multipart/form-data">
+      <label for="title">Property Title:</label>
+      <input type="text" id="title" name="title" required>
+      <label for="property_address">Address:</label>
+      <input type="text" id="property_address" name="address" required>
+      <label for="property_phone">Phone Number:</label>
+      <input type="tel" id="property_phone" name="phone" required>
+      <label for="details">Details (Beds or Sq/Ft):</label>
+      <input type="text" id="details" name="details" required>
+      <label for="type">Property Type:</label>
+      <select id="type" name="type" required>
+        <option value="rent">Rent</option>
+        <option value="buy">Buy</option>
+        <option value="commercial">Commercial</option>
+        <option value="residential">Residential</option>
+      </select>
+      <label for="images">Upload Images (up to 7):</label>
+      <input type="file" id="images" name="images" accept="image/*" multiple required>
+      <button type="submit">Submit Property</button>
+    </form>
+  </section>
+
+  <!-- Properties Section -->
+  <section class="properties">
+    <div class="property-grid" id="propertyGrid">
+      <!-- Properties will be loaded here -->
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-image">
+        <img src="../assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Footer Logo">
+      </div>
+      <div class="footer-section">
+        <h3>Contact Details</h3>
+        <p>D4RENT.IE</p>
+        <p>36 Upper Baggot St, Ballsbridge, D4</p>
+        <p>Phone: 01 442 7303, 087 169 9498</p>
+        <p>Email: <a href="mailto:info@d4rent.ie">info@d4rent.ie</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="agents.html">Agents</a></li>
+          <li><a href="landlords.html">Landlords</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Policy Links</h3>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect with Us</h3>
+        <ul>
+          <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+          <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+          <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+          <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="psra-number">PSRA No 003328</div>
+  </footer>
+
+  <script>
+    // Authentication check and fetch profile data
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('You are not logged in. Please log in first.');
+      window.location.href = 'login.html';
+    } else {
+      fetch('/api/adminprofile', {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.profile) {
+          document.getElementById('full_name').value = data.profile.full_name || '';
+          document.getElementById('email').value = data.profile.email || '';
+          document.getElementById('phone_number').value = data.profile.phone_number || '';
+          document.getElementById('address').value = data.profile.address || '';
+          document.getElementById('bio').value = data.profile.bio || '';
+          document.getElementById('profileImage').src = data.profile.profile_picture || '../assets/default-profile.png';
+        }
+        // Load properties if needed
+        if (data.properties && data.properties.length > 0) {
+          const grid = document.getElementById('propertyGrid');
+          data.properties.forEach(property => {
+            const card = document.createElement('div');
+            card.className = 'property-card';
+            card.innerHTML = `
+              <img src="${property.image_url || '../assets/default-property.png'}" alt="${property.title}">
+              <h3>${property.title}</h3>
+              <p>${property.status || ''}</p>
+              <a href="propertytemplate.html?id=${property.id}" class="view-details">View Details</a>
+            `;
+            grid.appendChild(card);
+          });
+        }
+      });
+    }
+
+    // Handle profile form submission
+    document.getElementById('editProfileForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = {
+        full_name: document.getElementById('full_name').value,
+        email: document.getElementById('email').value,
+        phone_number: document.getElementById('phone_number').value,
+        address: document.getElementById('address').value,
+        bio: document.getElementById('bio').value,
+        // Add profile_picture handling if you implement file upload
+      };
+      fetch('/api/adminprofile', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert(data.message || 'Profile updated!');
+      })
+      .catch(() => alert('Failed to update profile.'));
+    });
+
+    // Optional: Handle profile picture preview
+    document.getElementById('profilePictureInput').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          document.getElementById('profileImage').src = evt.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+</body>
+</html>

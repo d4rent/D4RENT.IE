@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D4Rent</title>
+  <link rel="stylesheet" href="../css/contact-us.css">
+  <header>
+    <div class="logo-container">
+      <a href="../index.html">
+        <img src="../assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Logo">
+      </a>
+    </div>
+    <div class="nav-login-container">
+      <nav>
+        <ul>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="rent.html">Rent</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="let.html">Let</a></li>
+          <li><a href="landlords.html">Landlords</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+            <!-- Dropdown for Agents -->
+      <li class="dropdown">
+        <a href="agents.html">Agents</a>
+        <ul class="dropdown-menu">
+            <li><a href="agents.html">Real Estate Agents</a></li>
+            <li><a href="agents.html">Mortgages</a></li>
+            <li><a href="agents.html">Valuations</a></li>
+            <li><a href="agents.html">Home Improvement</a></li>
+            <li><a href="agents.html">Other</a></li>
+        </ul>
+    </li>
+          <li><a href="contact-us.html" class="contact-button">Contact Us</a></li>
+        </ul>
+      </nav>
+      <!-- Login Button -->
+      <a href="login.html" class="login-button">
+        <img src="../assets/download.jpg" alt="User Profile">
+      </a>
+    </div>
+  </header>
+
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-container">
+      <!-- Contact Details -->
+      <div class="contact-details">
+        <h2>Contact Details</h2>
+        <p><strong>Address:</strong> 36 Upper Baggot St, Ballsbridge, D4</p>
+        <p><strong>Phone:</strong> 01 442 7303, 087 169 9498</p>
+        <p><strong>Email:</strong> <a href="mailto:info@d4rent.ie">info@d4rent.ie</a></p>
+        <p><strong>PSRA No:</strong> 003328</p>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form action="#" method="POST">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="contact-button">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section">
+    <div id="map" style="width: 100%; height: 400px;"></div>
+  </section>
+
+  <!-- Google Maps Script -->
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8dkrqVKGGQS8fX3avGMDjw-NTZa8bLqQ&callback=initMap">
+  </script>
+  <script>
+    function initMap() {
+      const location = { lat: 53.334028, lng: -6.253549 }; // Replace with your desired coordinates
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: location,
+      });
+      const marker = new google.maps.Marker({
+        position: location,
+        map: map,
+      });
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer>
+
+    <div class="footer-container">
+      <div class="footer-image">
+        <img src="../assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Footer Logo">
+    </div>
+      <div class="footer-section">
+        <h3>Contact Details</h3>
+        <p>D4RENT.IE</p>
+        <p>36 Upper Baggot St, Ballsbridge, D4</p>
+        <p>Phone: 01 442 7303, 087 169 9498</p>
+        <p>Email: <a href="mailto:info@d4rent.ie">info@d4rent.ie</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="agents.html">Agents</a></li>
+          <li><a href="landlords.html">Landlords</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Policy Links</h3>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect with Us</h3>
+        <ul>
+          <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+          <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+          <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+          <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="psra-number">PSRA No 003328</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Profile</title>
+  <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo-container">
+        <a href="../index.html">
+          <img src="../assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Logo">
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="rent.html">Rent</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="let.html">Let</a></li>
+          <li><a href="landlords.html">Landlords</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+          <li class="dropdown">
+            <a href="agents.html">Agents</a>
+            <ul class="dropdown-menu">
+              <li><a href="agents.html">Real Estate Agents</a></li>
+              <li><a href="agents.html">Mortgages</a></li>
+              <li><a href="agents.html">Valuations</a></li>
+              <li><a href="agents.html">Home Improvement</a></li>
+              <li><a href="agents.html">Other</a></li>
+            </ul>
+          </li>
+          <li><a href="contact-us.html" class="contact-button">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h1>Admin Profile</h1>
+    <div id="profile"></div>
+    <h2>All Properties</h2>
+    <button onclick="addProperty()">Add Property</button>
+    <div id="properties"></div>
+  </main>
+
+  <script>
+    // Fetch admin profile and all properties
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      alert('You are not logged in. Please log in first.');
+      window.location.href = 'login.html';
+    } else {
+      fetch('/api/adminprofile', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Populate profile section
+        const profileDiv = document.getElementById('profile');
+        if (data.profile) {
+          profileDiv.innerHTML = `
+            <p><strong>Name:</strong> ${data.profile.full_name || ''}</p>
+            <p><strong>Email:</strong> ${data.profile.email || ''}</p>
+            <p><strong>Phone:</strong> ${data.profile.phone_number || ''}</p>
+            <p><strong>PSRA:</strong> ${data.profile.psra || ''}</p>
+            <p><strong>Role:</strong> ${data.profile.role || ''}</p>
+            ${data.profile.profile_picture ? `<img src="${data.profile.profile_picture}" alt="Profile Picture" style="max-width:150px;">` : ''}
+            ${data.profile.bio ? `<p><strong>Bio:</strong> ${data.profile.bio}</p>` : ''}
+          `;
+        } else {
+          profileDiv.innerHTML = '<p>Profile not found.</p>';
+        }
+
+        // Populate properties section
+        const propertiesDiv = document.getElementById('properties');
+        propertiesDiv.innerHTML = '';
+        if (data.properties && data.properties.length > 0) {
+          data.properties.forEach(property => {
+            const propertyElement = document.createElement('div');
+            propertyElement.className = 'property';
+            propertyElement.innerHTML = `
+              <h3>${property.title || 'Untitled Property'}</h3>
+              <p><strong>Address:</strong> ${property.address || ''}</p>
+              <p><strong>Price:</strong> $${property.price || ''}</p>
+              <p><strong>Status:</strong> ${property.status || ''}</p>
+            `;
+            propertiesDiv.appendChild(propertyElement);
+          });
+        } else {
+          propertiesDiv.innerHTML = '<p>No properties found.</p>';
+        }
+      })
+      .catch(err => {
+        console.error('Error fetching admin data:', err);
+        alert('Failed to load admin data. Please try again later.');
+      });
+    }
+
+    function addProperty() {
+      window.location.href = '/properties/add';
+    }
+  </script>
+</body>
+</html>

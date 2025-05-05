@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D4Rent - Upload Property</title>
+  <link rel="stylesheet" href="/css/user-dashboard.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <a href="../index.html">
+        <img src="../assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Logo">
+      </a>
+    </div>
+    <div class="nav-login-container">
+      <nav>
+        <ul>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="rent.html">Rent</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="let.html">Let</a></li>
+          <li><a href="landlords.html">Landlords</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+            <!-- Dropdown for Agents -->
+      <li class="dropdown">
+        <a href="agents.html">Agents</a>
+        <ul class="dropdown-menu">
+            <li><a href="agents.html">Real Estate Agents</a></li>
+            <li><a href="agents.html">Mortgages</a></li>
+            <li><a href="agents.html">Valuations</a></li>
+            <li><a href="agents.html">Home Improvement</a></li>
+            <li><a href="agents.html">Other</a></li>
+        </ul>
+    </li>
+          <li><a href="contact-us.html" class="contact-button">Contact Us</a></li>
+        </ul>
+      </nav>
+      <a href="login.html" class="login-button">
+        <img src="../assets/download.jpg" alt="User Profile">
+      </a>
+    </div>
+  </header>
+
+  <form id="propertyForm" action="/upload-property" method="POST" enctype="multipart/form-data">
+    <!-- Property Title -->
+    <label for="title">Property Title:</label>
+    <input type="text" id="title" name="title" placeholder="Enter property title" required>
+  
+   <!-- Status Dropdown -->
+  <label for="status">Status:</label>
+  <select id="status" name="status" required>
+    <option value="price">Price</option>
+    <option value="sale agreed">Sale Agreed</option>
+    <option value="sold">Sold</option>
+  </select>
+
+  <!-- Price Input (Initially Visible) -->
+  <div id="priceField">
+    <label for="price">Price (€):</label>
+    <input type="number" id="price" name="price" placeholder="Enter property price">
+  </div>
+  
+    <!-- Address -->
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" placeholder="Enter property address" required>
+  
+    <!-- Description -->
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" placeholder="Enter property description"></textarea>
+  
+    <!-- Photos -->
+    <label for="photos">Upload Photos:</label>
+    <input type="file" id="photos" name="photos" accept="image/*" multiple>
+  
+    <!-- Submit Button -->
+    <button type="submit">Upload Property</button>
+  </form>
+
+  <!-- Footer -->
+  <footer>
+
+    <div class="footer-container">
+      <div class="footer-image">
+        <img src="../assets/d4rent.ielogobuyrentsell.png" alt="D4Rent Footer Logo">
+    </div>
+    <div class="footer-section">
+      <h3>Contact Details</h3>
+      <p>D4RENT.IE</p>
+      <p>36 Upper Baggot St, Ballsbridge, D4</p>
+      <p>Phone: 01 442 7303</p>
+      <p>087 169 9498</p>
+      <p>Email: <a href="mailto:info@d4rent.ie">info@d4rent.ie</a></p>
+    </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="agents.html">Agents</a></li>
+          <li><a href="landlords.html">Landlords</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Policy Links</h3>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect with Us</h3>
+        <ul>
+          <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+          <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+          <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+          <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="psra-number">PSRA No 003328</div>
+  </footer>
+
+  <script src="../scripts/user-dashboard.js"></script>
+</body>
+</html>
